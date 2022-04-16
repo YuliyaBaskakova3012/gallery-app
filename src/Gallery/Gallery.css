@@ -1,0 +1,29 @@
+.gallery{
+display: grid;
+width: 100%;
+grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+box-sizing: border-box;
+}
+.img{
+  width: 100%;
+}
+
+.Image{
+display: flex;
+flex-direction: column;
+box-sizing: border-box;
+width: 100%;
+align-items: center;
+justify-content: center;
+gap: 5px;
+}
+.Image >:nth-child(2){
+ background: blueviolet;
+ width: 40%;
+ max-width: 600px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ height: auto;
+}
+

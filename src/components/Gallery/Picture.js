@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Button, Spinner } from "react-bootstrap";
+import { Button, Spinner} from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { loadPicture } from "../../redux/picture-reducer";
@@ -33,6 +33,7 @@ useEffect(()=>{
         <>
         {isLoading?<div className="spinner"><Spinner size="lg" animation="grow"  /></div>:
          <div className="Picture">
+              
          <div>{title}</div>
          <div ><img className="img" src={pictureUrl} alt={title}/></div>    
          <div>

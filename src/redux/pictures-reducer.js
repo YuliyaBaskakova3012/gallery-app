@@ -1,5 +1,5 @@
-export const FETCH_USERS = "FETCH_USERS";
-export const SET_USERS = "SET_USERS";
+export const FETCH_PICTURES = "FETCH_PICTURES";
+export const SET_PICTURES = "SET_PICTURES";
 export const CHANGE_ISLOADING="CHANGE_ISLOADING";
 
 const initialState={
@@ -8,7 +8,7 @@ const initialState={
 }
 const picturesReducer=(state=initialState, action)=>{
     switch(action.type){
-        case SET_USERS: {
+        case SET_PICTURES: {
          return{
             ...state,
             data: action.payload
@@ -25,7 +25,7 @@ const picturesReducer=(state=initialState, action)=>{
     
 }
 
-export const setUsers=(payload)=>({type: SET_USERS, payload});
-export const fetchUsers = () => ({type: FETCH_USERS});
+export const setPictures=(payload)=>({type: SET_PICTURES, payload});
+export const fetchUsers = () => ({type: FETCH_PICTURES});
 export const changeisLoading = () => ({type: CHANGE_ISLOADING})
 export default picturesReducer;

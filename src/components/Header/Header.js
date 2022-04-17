@@ -11,12 +11,12 @@ const Header=()=>(
           title="Menu"
           menuVariant="dark"
         >
-          <NavDropdown.Item href="/aboutme">About me</NavDropdown.Item>
           <NavDropdown.Item href="/gallery">Gallery</NavDropdown.Item>
+          <NavDropdown.Item href="/aboutme">About me</NavDropdown.Item>
           <NavDropdown.Divider />
-          <div><img src={avatar} alt ="avatar" style={{"width": "3rem"}}/></div>
-   <div>Юлия Баскакова</div>
-   <div>juliabaskakova3012@gmail.com</div>
+          <div style={{"padding": "4px 16px"}}><img src={avatar} alt ="avatar" style={{"width": "3rem"}}/></div>
+   <div style={{"padding": "4px 16px"}}>Юлия Баскакова</div>
+   <div style={{"padding": "4px 16px"}}>juliabaskakova3012@gmail.com</div>
         </NavDropdown>
       </Nav>
     </Navbar.Collapse>

@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import AboutMe from './AboutMe/AboutMe';
 import './App.css';
 import Gallery from './components/Gallery/Gallery';
@@ -7,7 +7,7 @@ import Header from './components/Header/Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   return (
-  <BrowserRouter>
+  <HashRouter>
   <Header/>  
   <Routes>
       <Route exact path='/' element={<Gallery/>}/>
@@ -16,7 +16,7 @@ function App() {
       <Route exact path="/gallery/:id" element={<Image/>}/>
       <Route path="*" element={<Gallery/>}/>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 export default App;

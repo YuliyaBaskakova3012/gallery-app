@@ -22,6 +22,9 @@ const func=()=>{
     navigate("/");
 }
 useEffect(()=>{
+    document.title="Подробности о картинке";
+})
+useEffect(()=>{
     dispatch(loadPicture());   
     //eslint-disable-next-line react-hooks/exhaustive-deps
 }, [])

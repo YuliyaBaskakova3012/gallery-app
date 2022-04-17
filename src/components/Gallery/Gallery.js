@@ -7,7 +7,9 @@ import { useEffect } from "react";
   const Gallery=()=>{
   const isLoading = useSelector(state => state.pictures.isLoading);
   const dispatch = useDispatch();
-
+  useEffect(()=>{
+    document.title="Галерея";
+})
     useEffect(()=>{
         dispatch(fetchUsers());
         //eslint-disable-next-line react-hooks/exhaustive-deps

@@ -1,5 +1,5 @@
 import { Nav, Navbar, NavDropdown, Container} from "react-bootstrap";
-
+import avatar from "../../assets/avatar.png";
 const Header=()=>(
  <Navbar variant="dark" bg="dark" expand="lg">
   <Container fluid>
@@ -14,7 +14,7 @@ const Header=()=>(
           <NavDropdown.Item href="/aboutme">About me</NavDropdown.Item>
           <NavDropdown.Item href="/gallery">Gallery</NavDropdown.Item>
           <NavDropdown.Divider />
-          <div>Аватар</div>
+          <div><img src={avatar} alt ="avatar" style={{"width": "3rem"}}/></div>
    <div>Юлия Баскакова</div>
    <div>juliabaskakova3012@gmail.com</div>
         </NavDropdown>

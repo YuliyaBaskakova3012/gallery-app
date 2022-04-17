@@ -18,7 +18,6 @@ const picturesReducer=(state=initialState, action)=>{
             return{
                 ...state,
                 isLoading: false
-
             }
         }
         default: return state;

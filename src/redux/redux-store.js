@@ -1,11 +1,13 @@
 import { applyMiddleware, combineReducers, createStore } from "redux";
 import picturesReducer from "./pictures-reducer";
 import createSagaMiddleware from "redux-saga";
-import { userWatcher } from "./saga/picture-saga";
+import pictureReducer from "./picture-reducer";
+import { rootWatcher } from "./saga";
 const sagaMiddleware=createSagaMiddleware();
 const redusers=combineReducers({
-pictures: picturesReducer
+pictures: picturesReducer,
+picture: pictureReducer
 })
 const store=createStore(redusers, applyMiddleware(sagaMiddleware));
 export default store;
-sagaMiddleware.run(userWatcher)
+sagaMiddleware.run(rootWatcher)

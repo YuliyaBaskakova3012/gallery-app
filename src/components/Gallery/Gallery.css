@@ -3,12 +3,32 @@ display: grid;
 width: 100%;
 grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 box-sizing: border-box;
+
+}
+.spinner{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 700px;
+  max-height: 150px;
+  width: 700px;
+  max-width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.spinner :first-child{
+  width: 6rem;
+   height: 6rem;
 }
 .img{
   width: 100%;
 }
 
-.Image{
+.Picture{
 display: flex;
 flex-direction: column;
 box-sizing: border-box;
@@ -17,7 +37,7 @@ align-items: center;
 justify-content: center;
 gap: 5px;
 }
-.Image >:nth-child(2){
+.Picture >:nth-child(2){
  background: blueviolet;
  width: 40%;
  max-width: 600px;

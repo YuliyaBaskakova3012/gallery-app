@@ -2,13 +2,15 @@ import "./Gallery.css";
 import { fetchUsers } from "../../redux/pictures-reducer";
 import {useDispatch, useSelector} from "react-redux";
 import { NavLink } from "react-router-dom";
-import { Button, Nav, Spinner } from "react-bootstrap";
-import { useEffect } from "react";
+import { Button, Spinner } from "react-bootstrap";
+import { useEffect, useState } from "react";
   const Gallery=()=>{
+  const [style, setStyle] = useState({display: 'none'});
   const isLoading = useSelector(state => state.pictures.isLoading);
   const dispatch = useDispatch();
   useEffect(()=>{
     document.title="Галерея";
+
 })
     useEffect(()=>{
         dispatch(fetchUsers());
@@ -22,19 +24,24 @@ import { useEffect } from "react";
         {isLoading?<div className="spinner"><Spinner size="lg" animation="grow"  /></div>
         :
         <div className="gallery">
-        {users.map(photo=><div  key={photo.id}>
-         <Nav>
-             <img className="img" src={photo.url} alt={photo.title}/>
-             <NavLink to={`/gallery/${photo.id}`}>
-             <Button variant="light" className="gallery-button">Подробнее</Button>
+        {users.map(photo=><div className="gallery1" key={photo.id}  
+    onMouseEnter={e => {
+        setStyle({display: 'block'});
+        console.log(e.target.name)
+    }}
+    onMouseLeave={e => {
+        setStyle({display: 'none'})
+    }}
+    >         
+<NavLink to={`/gallery/${photo.id}`}>
+             <Button style={style} variant="light" className="gallery-button">Подробнее</Button>
              </NavLink>
-         </Nav>
+             <img className="img" src={photo.url} alt={photo.title}/>
          </div>
      )
         } 
     </div>
         }
-      
        </>
    )
 }

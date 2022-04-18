@@ -1,4 +1,5 @@
 import { Nav, Navbar, NavDropdown, Container} from "react-bootstrap";
+import { Link } from "react-router-dom";
 import avatar from "../../assets/avatar.png";
 const Header=()=>(
  <Navbar variant="dark" bg="dark" expand="lg">
@@ -11,8 +12,8 @@ const Header=()=>(
           title="Menu"
           menuVariant="dark"
         >
-          <NavDropdown.Item href="/gallery">Gallery</NavDropdown.Item>
-          <NavDropdown.Item href="/aboutme">About me</NavDropdown.Item>
+          <NavDropdown.Item ><Link style={{"textDecoration": "none", "color": "#FFFFFF"}} to="gallery">Gallery</Link></NavDropdown.Item>
+          <NavDropdown.Item ><Link style={{"textDecoration": "none", "color": "#FFFFFF"}} to="/aboutme" >About me</Link></NavDropdown.Item>
           <NavDropdown.Divider />
           <div style={{"padding": "4px 16px"}}><img src={avatar} alt ="avatar" style={{"width": "3rem"}}/></div>
    <div style={{"padding": "4px 16px"}}>Юлия Баскакова</div>

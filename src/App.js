@@ -14,7 +14,7 @@ function App() {
       <Route exact path="/aboutme" element={<AboutMe/>}/>
       <Route exact path="/gallery" element={<Gallery/>}/>
       <Route exact path="/gallery/:id" element={<Image/>}/>
-      <Route path="*" element={<Gallery/>}/>
+      <Route path="/*" element={<Gallery/>}/>
       </Routes>
     </HashRouter>
   );

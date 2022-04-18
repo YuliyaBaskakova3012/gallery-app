@@ -3,9 +3,27 @@ import { fetchUsers } from "../../redux/pictures-reducer";
 import {useDispatch, useSelector} from "react-redux";
 import { NavLink } from "react-router-dom";
 import { Button, Spinner } from "react-bootstrap";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
   const Gallery=()=>{
-  const [style, setStyle] = useState({display: 'none'});
+  const refs=useRef({});     
+  const [styledButtonId, changeStyledButtonId] = useState("");
+  const [previousStyledButtonId, changePreviousStyledButtonId] = useState("");
+  useEffect(()=>{
+    if(styledButtonId){
+        refs.current[styledButtonId].style.display="block";
+    } 
+  },[styledButtonId])
+
+  useEffect(()=>{
+    if(previousStyledButtonId===styledButtonId){
+      changeStyledButtonId("");
+      changePreviousStyledButtonId("");
+                }
+    if(previousStyledButtonId){
+      refs.current[previousStyledButtonId].style.display="none";
+                } 
+            },[previousStyledButtonId, styledButtonId])
+
   const isLoading = useSelector(state => state.pictures.isLoading);
   const dispatch = useDispatch();
   useEffect(()=>{
@@ -26,15 +44,14 @@ import { useEffect, useState } from "react";
         <div className="gallery">
         {users.map(photo=><div className="gallery1" key={photo.id}  
     onMouseEnter={e => {
-        setStyle({display: 'block'});
-        console.log(e.target.name)
+        changeStyledButtonId(photo.id);   
     }}
     onMouseLeave={e => {
-        setStyle({display: 'none'})
+        changePreviousStyledButtonId(photo.id)
     }}
     >         
 <NavLink to={`/gallery/${photo.id}`}>
-             <Button style={style} variant="light" className="gallery-button">Подробнее</Button>
+             <Button style={{"display": "none"}} id={photo.id} ref={(el)=>{refs.current[photo.id]=el}} variant="light" className="gallery-button">Подробнее</Button>
              </NavLink>
              <img className="img" src={photo.url} alt={photo.title}/>
          </div>

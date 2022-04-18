@@ -8,8 +8,8 @@ import "./Gallery.css";
 const Picture=()=>{
 const pictures=JSON.parse(sessionStorage.getItem("users"));
 const navigate=useNavigate();
-let url=window.location.href;
-let urlPart=url.split("/")[5];
+let url=window.location.hash;
+let urlPart=url.split("/")[2];
 let urlPartNumber=Number(urlPart);
 let picturesFilter=pictures.filter(i=>i.id===urlPartNumber);
 let pictureUrl=picturesFilter[0].url;

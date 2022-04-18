@@ -1,4 +1,4 @@
-import { applyMiddleware, combineReducers, createStore } from "redux";
+import { applyMiddleware, combineReducers, createStore, compose } from "redux";
 import picturesReducer from "./pictures-reducer";
 import createSagaMiddleware from "redux-saga";
 import pictureReducer from "./picture-reducer";
@@ -8,6 +8,7 @@ const redusers=combineReducers({
 pictures: picturesReducer,
 picture: pictureReducer
 })
-const store=createStore(redusers, applyMiddleware(sagaMiddleware));
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store=createStore(redusers, composeEnhancers(applyMiddleware(sagaMiddleware)));
 export default store;
-sagaMiddleware.run(rootWatcher)
+sagaMiddleware.run(rootWatcher);

@@ -2,7 +2,7 @@ import {put, takeEvery} from "redux-saga/effects"
 import {changeisLoading, FETCH_PICTURES, setPictures} from "../pictures-reducer";
 import axios from "axios";
 
-const apiUrl='http://jsonplaceholder.typicode.com/photos?_limit=24';
+const apiUrl='https://jsonplaceholder.typicode.com/photos?_limit=24';
 const delay=(ms)=>new Promise(res=>setTimeout(res, ms));
 
 function* fetchPicturesWorker() {

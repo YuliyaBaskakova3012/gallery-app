@@ -24,10 +24,10 @@ const AboutMe=()=>{
                         <li>Понимание клиент-серверного взаимодействия</li>
                         <li>Flexbox и Grid</li>
                         <li>Препроцессоры Sass/SCSS</li>
-                        <li>Настройка Webpack</li>
-                        <li>Next.js</li>
                         <li>Redux-Thunk</li>
                         <li>Redux-Saga</li>
+                        <li>Настройка Webpack</li>
+                        <li>Next.js</li>
                         <li>Axios</li>
                         <li>Lodash</li>
                    </ul>

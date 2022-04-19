@@ -37,7 +37,7 @@ useEffect(()=>{
               <div>
                 <p><strong>Заголовок:</strong> {title}</p>
                 <p><strong>ID:</strong> {id}</p>
-                <p><strong>Сссылка:</strong> <a href={pictureUrl}>{pictureUrl}</a></p>
+                <p><strong>Ссылка:</strong> <a href={pictureUrl}>{pictureUrl}</a></p>
               </div>
          <div><img src={pictureUrl} alt={title}/></div>    
          <div>

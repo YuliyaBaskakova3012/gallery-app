@@ -5,10 +5,9 @@ const AboutMe=()=>{
         document.title="Обо мне";
     })
     return(
-    <div >
-        <div class="row">
-          <div className="col-sm-4" style={{"padding": "0px"}}/>
-          <div className="col-sm-4" style={{"padding": "0px"}}>
+        <div className="row" style={{"margin": "0px"}} >
+          <div className="col-md-4" style={{"padding": "0px"}}/>
+          <div className="col-sm-12 col-md-4" style={{"padding": "0px"}}>
               <div className="card">
                 <div className="card-body">
                   <h3 className="card-title text-center">Юлия Баскакова</h3>
@@ -37,9 +36,8 @@ const AboutMe=()=>{
                 </div>
            </div>
            </div>
-           <div className="col-sm-4" style={{"padding": "0px"}}/>
+           <div className="col-md-4" style={{"padding": "0px"}}/>
       </div>
-    </div>
 )
 }
 export default  AboutMe;

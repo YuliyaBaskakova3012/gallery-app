@@ -1,0 +1,26 @@
+.Picture{
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    >:first-child{
+        word-break: break-all;
+    }
+    >:nth-child(2){
+        max-width: 600px;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    Button{
+        margin-top: 5px;
+    }
+    img{
+        width: 80%;
+    }
+}
+
+    

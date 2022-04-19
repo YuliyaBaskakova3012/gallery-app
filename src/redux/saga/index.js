@@ -1,7 +1,7 @@
 import { all } from "redux-saga/effects";
-import {picturesWatcher} from "./picture-saga";
-import {imageWatcher} from "./image-saga";
+import {galleryWatcher} from "./gallery-saga";
+import {pictureWatcher} from "./picture-saga";
 
 export function* rootWatcher(){
-    yield all([picturesWatcher(), imageWatcher()])
+    yield all([galleryWatcher(), pictureWatcher()])
 }

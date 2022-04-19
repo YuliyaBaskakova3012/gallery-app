@@ -1,9 +1,10 @@
-import "./Gallery.css";
-import { fetchUsers } from "../../redux/pictures-reducer";
+import "./Gallery.scss";
+import { fetchUsers } from "../../redux/gallery-reducer";
 import {useDispatch, useSelector} from "react-redux";
 import { NavLink } from "react-router-dom";
-import { Button, Spinner } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import { useEffect, useRef, useState } from "react";
+import Preloader from "../common/Preloader";
   const Gallery=()=>{
   const refs=useRef({});     
   const [styledButtonId, changeStyledButtonId] = useState("");
@@ -28,7 +29,6 @@ import { useEffect, useRef, useState } from "react";
   const dispatch = useDispatch();
   useEffect(()=>{
     document.title="Галерея";
-
 })
     useEffect(()=>{
         dispatch(fetchUsers());
@@ -39,10 +39,10 @@ import { useEffect, useRef, useState } from "react";
     sessionStorage.setItem("users", JSON.stringify(users));
     return(
         <>
-        {isLoading?<div className="spinner"><Spinner size="lg" animation="grow"  /></div>
+        {isLoading?<Preloader/>
         :
-        <div className="gallery">
-        {users.map(photo=><div className="gallery1" key={photo.id}  
+        <div className="Gallery">
+        {users.map(photo=><div className="Gallery__picture" key={photo.id}  
     onMouseEnter={e => {
         changeStyledButtonId(photo.id);   
     }}
@@ -51,9 +51,9 @@ import { useEffect, useRef, useState } from "react";
     }}
     >         
 <NavLink to={`/gallery/${photo.id}`}>
-             <Button style={{"display": "none"}} id={photo.id} ref={(el)=>{refs.current[photo.id]=el}} variant="light" className="gallery-button">Подробнее</Button>
+             <Button style={{"display": "none"}} id={photo.id} ref={(el)=>{refs.current[photo.id]=el}} variant="light"  className="Gallery__button">Подробнее</Button>
              </NavLink>
-             <img className="img" src={photo.url} alt={photo.title}/>
+             <img src={photo.thumbnailUrl} alt={photo.title}/>
          </div>
      )
         } 

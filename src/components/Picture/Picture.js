@@ -1,20 +1,21 @@
 import { useEffect } from "react";
-import { Button, Spinner} from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { loadPicture } from "../../redux/picture-reducer";
-import "./Gallery.css";
+import Preloader from "../common/Preloader";
+import "./Picture.scss";
 
 const Picture=()=>{
 const pictures=JSON.parse(sessionStorage.getItem("users"));
 const navigate=useNavigate();
-let url=window.location.hash;
-let urlPart=url.split("/")[2];
-let urlPartNumber=Number(urlPart);
-let picturesFilter=pictures.filter(i=>i.id===urlPartNumber);
-let pictureUrl=picturesFilter[0].url;
-let title=picturesFilter[0].title;
-
+const url=window.location.hash;
+const urlPart=url.split("/")[2];
+const urlPartNumber=Number(urlPart);
+const picturesFilter=pictures.filter(i=>i.id===urlPartNumber);
+const pictureUrl=picturesFilter[0].url;
+const title=picturesFilter[0].title;
+const id=picturesFilter[0].id;
 const isLoading = useSelector(state => state.picture.isLoading);
 const dispatch = useDispatch();
   
@@ -31,13 +32,16 @@ useEffect(()=>{
 
     return(
         <>
-        {isLoading?<div className="spinner"><Spinner size="lg" animation="grow"  /></div>:
+        {isLoading?<Preloader/>:
          <div className="Picture">
-              
-         <div>{title}</div>
-         <div ><img className="img" src={pictureUrl} alt={title}/></div>    
+              <div>
+                <p><strong>Заголовок:</strong> {title}</p>
+                <p><strong>ID:</strong> {id}</p>
+                <p><strong>Сссылка:</strong> <a href={pictureUrl}>{pictureUrl}</a></p>
+              </div>
+         <div><img src={pictureUrl} alt={title}/></div>    
          <div>
-          <Button  variant="dark" onClick={()=>func()}>Назад</Button>
+           <Button variant="dark" onClick={()=>func()}>Назад</Button>
          </div>
          </div>
         }

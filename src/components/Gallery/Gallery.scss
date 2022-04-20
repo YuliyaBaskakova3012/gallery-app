@@ -3,14 +3,13 @@ display: grid;
 width: 100%;
 grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 row-gap: 15px;
+margin-top: 15px;
 box-sizing: border-box;
 .Gallery__picture{
   position: relative;
   width: 100%;
-  display: flex;
     img{
       width: 100%;
-      height: auto;
     }
 }
 Button{

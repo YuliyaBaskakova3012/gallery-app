@@ -42,6 +42,7 @@ import Preloader from "../common/Preloader";
         <>
         {isLoading?<Preloader/>
         :
+        <div className="GalleryContainer">
         <div className="Gallery">
         {users.map(photo=><div className="Gallery__picture" key={photo.id}  
     onMouseEnter={e => {
@@ -52,14 +53,16 @@ import Preloader from "../common/Preloader";
     }}
     >         
 <NavLink to={`/gallery/${photo.id}`}>
-             <Button style={{"display": "none"}} id={photo.id} ref={(el)=>{refs.current[photo.id]=el}} variant="light"  className="Gallery__button">Подробнее</Button>
+             <Button ref={(el)=>{refs.current[photo.id]=el}} variant="light"  className="Gallery__button">Подробнее</Button>
              </NavLink>
              <img src={photo.thumbnailUrl} alt={photo.title}/>
          </div>
      )
         } 
     </div>
+    </div>
         }
+       
        </>
    )
 }

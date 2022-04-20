@@ -1,24 +1,36 @@
-.Gallery{
-display: grid;
-width: 100%;
-grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-row-gap: 15px;
-margin-top: 15px;
-box-sizing: border-box;
-.Gallery__picture{
+.GalleryContainer{
   position: relative;
-  width: 100%;
-    img{
-      width: 100%;
-    }
+  height: 100%;
+  margin-top: 15px;
+  display: flex;
 }
-Button{
+.Gallery{
+  display: grid;
+  height: 100vh;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   position: absolute;
   top: 0;
+  bottom: 0;
   left: 0;
-  right: 0; 
-  font-size: 0.8rem;
-}
+  right: 0;
+  row-gap: 15px;
+  box-sizing: border-box;
+    .Gallery__picture{
+      position: relative;
+      width: 100%;
+        img{
+          width: 100%;
+      }
+    }
+    Button{
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0; 
+      font-size: 0.8rem;
+      display: none;
+    }
 }
 @media(max-width: 580px){
   .Gallery{

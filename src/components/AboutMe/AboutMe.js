@@ -5,7 +5,7 @@ const AboutMe=()=>{
         document.title="Обо мне";
     })
     return(
-        <div className="row" style={{"margin": "0px"}} >
+        <div className="row" style={{"margin": "0px", "marginTop": "10px"}} >
           <div className="col-md-4" style={{"padding": "0px"}}/>
           <div className="col-sm-12 col-md-4" style={{"padding": "0px"}}>
               <div className="card">

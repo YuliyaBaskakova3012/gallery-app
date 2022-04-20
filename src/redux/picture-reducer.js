@@ -15,6 +15,6 @@ const pictureReducer=(state=initialState, action)=>{
     }  
 }
 
-export const changeisLoading = () => ({type: CHANGE_IS_LOADING});
+export const changeIsLoading = () => ({type: CHANGE_IS_LOADING});
 export const loadPicture = () => ({type: LOAD_PICTURE});
 export default pictureReducer;

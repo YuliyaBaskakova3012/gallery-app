@@ -1,10 +1,11 @@
 import "./Gallery.scss";
-import { fetchUsers } from "../../redux/gallery-reducer";
+import { fetchPictures } from "../../redux/gallery-reducer";
 import {useDispatch, useSelector} from "react-redux";
 import { NavLink } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import { useEffect, useRef, useState } from "react";
 import Preloader from "../common/Preloader";
+
   const Gallery=()=>{
   const refs=useRef({});     
   const [styledButtonId, changeStyledButtonId] = useState("");
@@ -31,7 +32,7 @@ import Preloader from "../common/Preloader";
     document.title="Галерея";
 })
     useEffect(()=>{
-        dispatch(fetchUsers());
+        dispatch(fetchPictures());
         //eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
         

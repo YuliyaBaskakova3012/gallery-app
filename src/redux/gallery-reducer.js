@@ -26,6 +26,6 @@ const galleryReducer=(state=initialState, action)=>{
 }
 
 export const setPictures=(payload)=>({type: SET_PICTURES, payload});
-export const fetchUsers = () => ({type: FETCH_PICTURES});
+export const fetchPictures = () => ({type: FETCH_PICTURES});
 export const changeisLoading = () => ({type: CHANGE_IS_LOADING})
 export default galleryReducer;

@@ -7,7 +7,7 @@
 ## «Обо мне»
 <img src='./src/assets/aboutme.png' alt='aboutme'>
 
-## "Подробности о картинке"
+## «Подробности о картинке»
 <img src='./src/assets/picture.png' alt='picture'>
 
 ### При создании SPA использовались технологии и инструменты:

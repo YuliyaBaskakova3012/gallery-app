@@ -1,3 +1,9 @@
+@mixin mixin1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;  
+}
 .GalleryContainer{
   position: relative;
   height: 100%;
@@ -6,14 +12,10 @@
 }
 .Gallery{
   display: grid;
-  height: 100vh;
+  @include mixin1();
+  bottom: 0;
   grid-template-rows: 1fr 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
   row-gap: 15px;
   box-sizing: border-box;
     .Gallery__picture{
@@ -24,10 +26,7 @@
       }
     }
     Button{
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0; 
+      @include mixin1();
       font-size: 0.8rem;
       display: none;
     }
@@ -45,8 +44,6 @@
   .Gallery{
       Button{
         font-size: 0.3rem;
-        padding-left: 0px;
-        padding-right: 0px;
     }
   }
 }

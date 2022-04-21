@@ -1,25 +1,25 @@
-.Picture{
+@mixin mixin1 {
     display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
     align-items: center;
-    justify-content: center;
+    justify-content: center;  
+    box-sizing: border-box; 
+}
+.Picture{
+    @include mixin1();
+    flex-direction: column;
     padding: 10px;
-    >:first-child{
-        word-break: break-all;
+        >:first-child{
+            word-break: break-all;
     }
-    >:nth-child(2){
-        max-width: 600px;
-        box-sizing: border-box;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        >:nth-child(2){
+            @include mixin1();
+            max-width: 600px;
     }
-    Button{
-        margin-top: 5px;
+        Button{
+            margin-top: 5px;
     }
-    img{
-        width: 80%;
+        img{
+            width: 80%;
     }
 }
 

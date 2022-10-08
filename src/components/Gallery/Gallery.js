@@ -6,64 +6,73 @@ import { Button } from "react-bootstrap";
 import { useEffect, useRef, useState } from "react";
 import Preloader from "../common/Preloader";
 
-  const Gallery=()=>{
-  const refs=useRef({});     
+const Gallery = () => {
+
+  const refs = useRef({});     
   const [styledButtonId, changeStyledButtonId] = useState("");
   const [previousStyledButtonId, changePreviousStyledButtonId] = useState("");
-  useEffect(()=>{
-    if(styledButtonId){
-        refs.current[styledButtonId].style.display="block";
+
+  useEffect(() => {
+    if (styledButtonId) {
+      refs.current[styledButtonId].style.display = "block";
     } 
   },[styledButtonId])
 
-  useEffect(()=>{
-    if(previousStyledButtonId===styledButtonId){
+  useEffect(() => {
+    if (previousStyledButtonId === styledButtonId) {
       changeStyledButtonId("");
       changePreviousStyledButtonId("");
-                }
-    if(previousStyledButtonId){
-      refs.current[previousStyledButtonId].style.display="none";
-                } 
-            },[previousStyledButtonId, styledButtonId])
+    }
+    if (previousStyledButtonId) {
+      refs.current[previousStyledButtonId].style.display = "none";
+    } 
+  }, [previousStyledButtonId, styledButtonId])
 
   const isLoading = useSelector(state => state.pictures.isLoading);
   const dispatch = useDispatch();
-  useEffect(()=>{
+
+  useEffect(() => {
     document.title="Галерея";
-})
-    useEffect(()=>{
-        dispatch(fetchPictures());
-        //eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+  })
+ 
+  useEffect(() => {
+    dispatch(fetchPictures());
+    //eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
         
-    const users = useSelector(state => state.pictures.data);
-    sessionStorage.setItem("users", JSON.stringify(users));
-    return(
-        <>
-        {isLoading?<Preloader/>
+  const users = useSelector(state => state.pictures.data);
+  sessionStorage.setItem("users", JSON.stringify(users));
+    
+  return (
+    <>
+      {isLoading ? 
+        <Preloader/>
         :
         <div className="GalleryContainer">
-        <div className="Gallery">
-        {users.map(photo=><div className="Gallery__picture" key={photo.id}  
-    onMouseEnter={e => {
-        changeStyledButtonId(photo.id);   
-    }}
-    onMouseLeave={e => {
-        changePreviousStyledButtonId(photo.id)
-    }}
-    >         
-<NavLink to={`/gallery/${photo.id}`}>
-             <Button ref={(el)=>{refs.current[photo.id]=el}} variant="light"  className="Gallery__button">Подробнее</Button>
-             </NavLink>
-             <img src={photo.thumbnailUrl} alt={photo.title}/>
-         </div>
-     )
-        } 
-    </div>
-    </div>
-        }
+          <div className="Gallery">
+            {
+              users.map(photo => 
+                <div className="Gallery__picture" key={photo.id}  
+                  onMouseEnter={e => {
+                    changeStyledButtonId(photo.id);   
+                  }}
+                  onMouseLeave={e => {
+                    changePreviousStyledButtonId(photo.id)
+                  }}
+                >         
+                  <NavLink to={`/gallery/${photo.id}`}>
+                    <Button ref={(el)=>{refs.current[photo.id]=el}} variant="light" className="Gallery__button">Подробнее</Button>
+                  </NavLink>
+                  <img src={photo.thumbnailUrl} alt={photo.title}/>
+                </div>
+              )
+            } 
+          </div>
+        </div>
+      }
        
-       </>
+    </>
    )
 }
+
 export default Gallery;

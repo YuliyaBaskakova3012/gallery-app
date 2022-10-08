@@ -1,49 +1,55 @@
 @mixin mixin1 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;  
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;  
 }
+
 .GalleryContainer{
-  position: relative;
-  height: 100%;
-  margin-top: 15px;
-  display: flex;
+    position: relative;
+    height: 100%;
+    margin-top: 15px;
+    display: flex;
 }
+
 .Gallery{
-  display: grid;
-  @include mixin1();
-  bottom: 0;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  row-gap: 15px;
-  box-sizing: border-box;
-    .Gallery__picture{
-      position: relative;
-      width: 100%;
-        img{
-          width: 100%;
-      }
-    }
-    Button{
-      @include mixin1();
-      font-size: 0.8rem;
-      display: none;
-    }
+    display: grid;
+    @include mixin1();
+    bottom: 0;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    row-gap: 15px;
+    box-sizing: border-box;
+        .Gallery__picture{
+            position: relative;
+            width: 100%;
+            img{
+                width: 100%;
+            }
+        }
+        Button{
+            @include mixin1();
+            font-size: 0.8rem;
+            display: none;
+            width: 100%;
+        }
 }
+
 @media(max-width: 580px){
-  .Gallery{
-    Button{
-      font-size: 0.5rem;
-      padding-left: 0px;
-      padding-right: 0px;
+    .Gallery{
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        Button{
+            padding-left: 0px;
+            padding-right: 0px;
+        }
     }
-  }
 }
+
 @media(max-width: 270px){
-  .Gallery{
-      Button{
-        font-size: 0.3rem;
+    .Gallery{
+        Button{
+            font-size: 0.3rem;
+        }
     }
-  }
 }
